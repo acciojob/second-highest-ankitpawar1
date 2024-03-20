@@ -10,7 +10,24 @@
 	<script>
 		function secondHighest(arr) {
 			//Write your code here
-			
+			// If the array is empty or has only one element, return -Infinity
+            if (arr.length <= 1) {
+                return -Infinity;
+            }
+            
+            // Remove duplicates by converting array to a Set
+            let uniqueArr = [...new Set(arr)];
+            
+            // If after removing duplicates, the array has only one element, return -Infinity
+            if (uniqueArr.length === 1) {
+                return -Infinity;
+            }
+            
+            // Sort the unique array in descending order
+            uniqueArr.sort((a, b) => b - a);
+            
+            // Return the second element of the sorted unique array
+            return uniqueArr[1];
 		}
 
 		function Main() {
